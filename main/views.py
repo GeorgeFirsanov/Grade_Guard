@@ -3,8 +3,8 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("<h3>Main</h3>")
+    return render(request, 'main/index.html')
 
 def teacher(request):
-    return HttpResponse("<h3>teacher</h3>")
+    return render(request, 'main/teacher.html')
 # Create your views here.
