@@ -7,4 +7,7 @@ def index(request):
 
 def teacher(request):
     return render(request, 'main/teacher.html')
-# Create your views here.
+
+def student(request):
+    return render(request, 'main/student.html')
+
