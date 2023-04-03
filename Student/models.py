@@ -1,3 +1,9 @@
 from django.db import models
 
-# Create your models here.
+from group.models import Student
+
+def extends(klass):
+    def decorator(func):
+        setattr(klass, func.__name__, func)
+        return func
+    return decorator
