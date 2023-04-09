@@ -13,6 +13,9 @@
         <div class="content">
             <div class="content__head">Выберите предмет</div>
             <div class="content__spisok">
+                {% for subj in subjects %}
+                    {{subj.sub_name}}
+                {% endfor %}
                 <a href="/subjects/Math.html" class="content__item">Высшая математика</a>
                 <a href="/subjects/foreign.html" class="content__item">Иностранный язык</a>
                 <a href="/subjects/comp_prac.html" class="content__item">Компьютерный практикум</a>
