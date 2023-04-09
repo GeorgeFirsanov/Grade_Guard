@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from group.models import Subject
 
-def index(request):
+def register_request(request):
     return render(request, 'front/index.html')
 
 def teacher(request):
