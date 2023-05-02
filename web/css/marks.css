@@ -1,0 +1,76 @@
+@import "/css/zero_style.css";
+@import "/css/general_style.css";
+.content {
+  color: white;
+}
+.content__tables {
+  padding: 100px;
+}
+.content__tables > * {
+  margin-bottom: 100px;
+}
+.content__table {
+  border: 3px solid white;
+  padding: 10px;
+}
+.content .table {
+  display: grid;
+  grid-template-columns: minmax(300px, 1400px);
+  row-gap: 10px;
+}
+.content .table__row {
+  display: grid;
+  font-size: 24px;
+}
+.content .title {
+  font-size: 30px;
+}
+.content .table_main {
+  grid-template-rows: repeat(5, 1fr);
+}
+.content .table_main__title {
+  justify-self: center;
+}
+.content .table_main .row {
+  grid-template-columns: 1fr 40px;
+  border-bottom: 1px dotted blue;
+}
+.content .table_main__row_general {
+  border: 3px solid blueviolet;
+  font-weight: 700;
+}
+.content .table_specific {
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0px;
+}
+.content .table_specific__title {
+  margin-bottom: 15px;
+}
+.content .table_specific .row > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content .table_specific .row__name {
+  border: 2px solid white;
+  grid-column: span 1;
+}
+.content .table_specific .row__name:first-child {
+  grid-column-start: 2;
+}
+.content .table_specific .row__score {
+  border: 2px solid white;
+  grid-column: span 1;
+}
+.content .table_specific .row__score:first-child {
+  grid-column-start: 2;
+}
+.content .table_moodle .row {
+  grid-template-columns: 0.3fr repeat(3, 200px);
+}
+.content .table_visits .row {
+  grid-template-columns: 0.5fr repeat(6, 200px);
+}
+.content .table_labs .row {
+  grid-template-columns: 0.5fr repeat(6, 200px);
+}

@@ -5,9 +5,7 @@ $darkRed: #5c1b1b;
 $blue: rgb(8, 97, 180);
 $grey: #3a3838;
 .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
     &__autoriz {
         border-radius: 50px;
         box-shadow: 0 0 50px 100px  $darkRed;

@@ -1,10 +1,5 @@
 @import "/css/zero_style.css";
 @import "/css/general_style.css";
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .content__autoriz {
   border-radius: 50px;
   box-shadow: 0 0 50px 100px #5c1b1b;
