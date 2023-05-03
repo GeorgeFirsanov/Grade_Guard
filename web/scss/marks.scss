@@ -1,11 +1,12 @@
 @import "/css/zero_style.css";
 @import "/css/general_style.css";
+@import "./extend.scss";
 
 .content {
     color: white;
     &__tables {
         padding: 100px;
-        &>*{
+        &>*:not(:last-child){
             margin-bottom: 100px;
         }
     }
@@ -87,12 +88,26 @@
     }
     .table_visits{
         .row{
-            grid-template-columns: .5fr repeat(6,200px);
+            grid-template-columns: .1fr repeat(6,minmax(100px,1fr)) .1fr;
         }
     }
     .table_labs{
         .row{
-            grid-template-columns: .5fr repeat(6,200px);
+            grid-template-columns: .1fr repeat(6,minmax(100px,1fr)) .1fr;
+        }
+    }
+    .table_addition{
+        .row {
+            grid-template-columns: .3fr repeat(3,200px);
+        }
+    }
+    &__link {
+        @extend %item;
+        // font-size: 40px;
+        // display: inline-block;
+        // background: $rusty;
+        & a{
+            color: black;
         }
     }
 }
