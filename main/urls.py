@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
+from userslogin import views as userv
 
 urlpatterns = [
-    path('', views.index),
+    path('', userv.register),
     path('teacher', views.teacher),
     path('student', views.student),
     path('subject', views.subject),
-    path("register", views.register_request, name="register")
 ]

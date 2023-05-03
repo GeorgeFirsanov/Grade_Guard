@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'group',
     'Student',
     'Professor',
-    'userlogin'
+    'userslogin'
 ]
 
 MIDDLEWARE = [

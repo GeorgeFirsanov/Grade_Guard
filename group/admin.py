@@ -5,4 +5,5 @@ from . import models as m
 admin.site.register(m.Group)
 admin.site.register(m.Student)
 admin.site.register(m.Subject)
+admin.site.register(m.Atom)
 admin.site.register(m.Professor)
