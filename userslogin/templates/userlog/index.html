@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 {% load static %}
+
+<h3>Уже есть аккаунт?</h3><br>
+<a href = "{% url 'register' %}">Зарегистрироваться</a>
+{% csrf_token %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +13,7 @@
     <link rel="stylesheet" href="{% static "css\autoriz.css" %}">
 </head>
 <body>
+    <form method = 'post'>
     <div class="wrapper">
         <header class="header">Header</header>
         <div class="content">
@@ -41,5 +46,6 @@
             </div>
         </footer>
     </div>
+    </form>
 </body>
 </html>

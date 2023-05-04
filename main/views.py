@@ -1,15 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-
 from group.models import Subject
-
+from userslogin import views
 
 def teacher(request):
-    return render(request, 'main/teacher.html')
+    if request.user.is_authenticated:
+        return render(request, 'main/teacher.html')
+    else:
+        return redirect(views.register)
 
 def student(request):
-    return render(request, 'front/subjects.html')
+    if request.user.is_authenticated:
+        return render(request, 'front/subjects.html')
+    else:
+        return redirect(views.register)
 
 def subject(request):
-    return render(request, 'front/marks.html', {'subjects': Subject.objects.all()})
+    if request.user.is_authenticated:
+            return render(request, 'front/marks.html', {'subjects': Subject.objects.all()})
+    else:
+        return redirect(views.register)
 
