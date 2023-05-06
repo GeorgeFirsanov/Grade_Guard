@@ -23,6 +23,8 @@ body{
     text-align: center;
 }
 .content {
+    max-width: 1440px;
+    margin: 0 auto;
     flex: 1 1 auto;
     display: flex;
     overflow: hidden;

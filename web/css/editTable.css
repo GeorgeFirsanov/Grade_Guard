@@ -23,6 +23,8 @@ body {
 }
 
 .content {
+  max-width: 1440px;
+  margin: 0 auto;
   flex: 1 1 auto;
   display: flex;
   overflow: hidden;
@@ -68,6 +70,7 @@ body {
 .content__form {
   display: flex;
   justify-content: center;
+  column-gap: 10px;
 }
 .content__title {
   font-size: 36px;
@@ -77,6 +80,7 @@ body {
 }
 .content .form__table {
   display: grid;
+  row-gap: 10px;
   width: 100%;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
@@ -101,6 +105,11 @@ body {
   flex: 1 1 auto;
   border: 1px solid white;
 }
+.content .form .table .row__item_main {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
 .content .form .table .row__item_add {
   display: flex;
   flex-direction: column;
@@ -118,7 +127,44 @@ body {
   padding: 1% 0;
   border: 1px solid white;
 }
+.content .form .table .row_head {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: minmax(100px, 200px) minmax(100px, 3fr) minmax(100px, 6fr) minmax(100px, 5fr) repeat(3, minmax(100px, 1fr));
+}
+.content .form .table .row_student {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: minmax(100px, 200px) repeat(14, minmax(20px, 1fr)) repeat(3, minmax(100px, 1fr));
+}
+.content .form .table .row_student .row__pole > * {
+  margin: 2px;
+  font-size: 1.5em;
+  text-align: center;
+  width: 90%;
+}
+.content .form .table .row_student .row__pole > *:focus {
+  box-shadow: 0 0 3px 2px #eff;
+}
 .content .form__buttons {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  row-gap: 20px;
+  width: 8%;
+}
+.content .form__buttons > * {
+  font-size: 18px;
+  color: #191919;
+  letter-spacing: -0.5px;
+  height: 35px;
+  border-radius: 5px;
+  background: rgb(232, 223, 57);
+}
+.content .form__buttons > *:hover {
+  background: rgb(201, 194, 51);
+}
+.content .form__buttons > *:active {
+  background: rgb(137, 132, 36);
+  color: #e0e0e0;
 }
