@@ -3,22 +3,22 @@
 
 <h3>Уже есть аккаунт?</h3><br>
 <a href = "{% url 'register' %}">Зарегистрироваться</a>
-{% csrf_token %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static "css\autoriz.css" %}">
+    <link rel="stylesheet" href="{% static "css\autoriz.css"%}">
 </head>
 <body>
-    <form method = 'post'>
+    <form method = 'POST'>{% csrf_token %}
     <div class="wrapper">
         <header class="header">Header</header>
         <div class="content">
             <div class="autoriz">
-                <form action="#" method="get" class="autoriz__form">
+
                      <div class="autoriz__form-title">Авторизация</div>
                         <input class="autoriz__form-input" type="text"  name="userlog" placeholder="Логин">
                         <input class="autoriz__form-input" type="password" name="userpas" placeholder="Пароль">
@@ -28,7 +28,7 @@
                         </div>
                         <button class="autoriz__form-butt" type="submit">Вход</button>
                     </div>
-                </form>
+
             </div>
         </div>
         <footer class="footer">
