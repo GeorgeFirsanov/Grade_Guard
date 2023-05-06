@@ -14,6 +14,7 @@ body {
   height: 75px;
   width: 100%;
   font-size: 30px;
+  position: sticky;
   padding: 20px;
   align-self: center;
   background: #f4f4f4;
@@ -48,6 +49,7 @@ body {
 .footer__authors a {
   color: black;
   margin: 0 0 0 10px;
+  text-decoration: none;
 }
 .footer__authors a:hover {
   color: black;

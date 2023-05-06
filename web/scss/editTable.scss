@@ -1,0 +1,83 @@
+@import "/css/zero_style.css";
+@import "./general_style.scss";
+@import "./extend.scss";
+
+.content{
+    flex: 1 1 auto;
+    display: block;
+    color: #fff;
+    &__form {
+        display: flex;
+        justify-content: center;
+    }
+    &__title {
+        font-size: 36px;
+        letter-spacing: -1.5px;
+        font-weight: 700;
+        margin: 10px;
+    }
+    .form {
+        &__table {
+            display: grid;
+            width: 100%;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+        }
+        .table {
+            border: 3px solid white;
+            &__row {
+                display: flex;
+            }
+            &__row_main {
+            }
+            &>*>*:first-child{
+                color: #0f0;
+                font-size: 16px;
+                padding: 1% 0;
+                align-self: center;
+            }
+            .row {
+                height: 100%;
+                &__item {
+                    display: inline-block;
+                    flex: 1 1 auto;
+                    border: 1px solid white;
+                }
+                &__item_main {
+                    .row__item{
+                    }
+                }
+                &__item_add {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    &>*:last-child{
+                        width: 100%;
+                        //flex: 1 1 auto;
+                        color: #f00;
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        &>*{
+                            flex: 1 1 auto;
+                            padding: 1% 0;
+                            border: 1px solid white;
+                        }
+                    }
+                    .row__item{
+                    }
+                }
+                &_item {
+                }
+            }
+        }
+        &__buttons {
+            display: flex;
+            flex-direction: column;
+        }
+        &__save {
+        }
+        &__cancel {
+        }
+    }
+}

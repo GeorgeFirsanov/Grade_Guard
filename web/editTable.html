@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/editTable.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">Header</header>
+        <div class="content">
+            <center>
+                <table border="1px solid black" cellspacing="5" bgcolor="white">
+                    <caption><b>Input Marks</b></caption>
+                    <tr>
+                        <th rowspan="2">Name</th>
+                        <th colspan="4">Score</th>
+                    </tr>
+                    <tr>
+                        <th>Hindi</th>
+                        <th>English</th>
+                        <th>Math</th>
+                        <th>C Programming</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="aname"></td>
+                        <td><input type="text" id="am"></td>
+                        <td><input type="text" id="aj"></td>
+                        <td><input type="text" id="ad"></td>
+                        <td><input type="text" id="an"></td>
+                    </tr>
+                    <tr>
+                        <th colspan="5" height="30">
+                        <input type="submit" value="Add To Table" onclick="Sub()"></th>
+                    </tr>    
+                </table>
+                <h2 class="content__title">Общее количество баллов</h2>
+                <form action="#" class="content__form form">
+                    <div class="form__table table">
+                        <div class="table__row row table__row_main">
+                            <div class="row__item row__item_main">ФИО</div>
+                            <div class="row__item row__item_main row__item_add">
+                                <div class="table__row row row__item_main">
+                                    <div class="row_item">Тесты Moodle</div>
+                                </div>
+                                <div class="table__row row row__item_main">
+                                    <div class="row_item">№1</div>
+                                    <div class="row_item">№2</div>
+                                    <div class="row_item">№3</div>
+                                </div>
+                            </div>
+                            <div class="row__item row__item_main row__item_add">
+                                <div class="table__row row row__item_main">
+                                    <div class="row_item">Посещения</div>
+                                </div>
+                                <div class="table__row row row__item_main">
+                                    <div class="row_item">date</div>
+                                    <div class="row_item">date</div>
+                                    <div class="row_item">date</div>
+                                    <div class="row_item">date</div>
+                                    <div class="row_item">date</div>
+                                    <div class="row_item">date</div>
+                                </div>
+                            </div>
+                            <div class="row__item row__item_main row__item_add">
+                                <div class="table__row row row__item_main">
+                                    <div class="row_item">Какие-то работы</div>
+                                </div>
+                                <div class="table__row row row__item_main">
+                                    <div class="row_item">№1</div>
+                                    <div class="row_item">№2</div>
+                                    <div class="row_item">№3</div>
+                                    <div class="row_item">№4</div>
+                                    <div class="row_item">№5</div>
+                                </div>
+                            </div>
+                            <div class="row__item row__item_main">Доп баллы</div>
+                            <div class="row__item row__item_main">Общее количество</div>
+                            <div class="row__item row__item_main">Оценка</div>
+                        </div>
+                        <div class="table__row row">
+                            <div class="row__item row__item_main">
+                                Алимов В.А.
+                            </div>
+                        </div>
+                        <div class="table__row row"></div>
+                        <div class="table__row row"></div>
+                        <div class="table__row row"></div>
+                    </div>
+                    <div class="form__buttons">
+                        <button type="submit" class="form__save">Сохранить</button>
+                        <button type="reset" class="form__cancel">Отменить</button>
+                    </div>
+                </form>
+                
+                <table border="1" cellspacing="5" bgcolor="white" 
+                       height="100" width="500" cellpadding="5" id="TableScore">
+                    <caption><b>Student Data</b></caption>
+                    <tr>
+                        <th width="180">Name</th>
+                        <th>Total</th>
+                        <th>Average</th>
+                        <th>Pass Or Fail</th>
+                    </tr>
+                      
+                </table>
+                </center>
+
+            <!-- <div class="content__edit">
+                <iframe scrolling="no" class="content__table" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS65Ln73ymAHt5SSYUlXl_98KkyKZFrWF7gBVPCBPqLpgtWBCgCXLaorCuzRVMlxxk3EJ42XvFXJrUK/pubhtml?widget=true&amp;headers=false"></iframe>
+            </div> -->
+        </div>
+        <footer class="footer">
+            <div class="footer__row">
+                <div class="footer__authors">
+                    Авторы:
+                    <a href="https://vk.com/ru.bachatero">Максим Булычев</a>
+                    <a href="https://vk.com/firsang">Георгий Фирсанов</a>
+                    <a href="https://vk.com/dos100evskiy">Андрей Юрков</a>
+                    <a href="https://vk.com/zl0i_belyi">Владислав Квасюк</a>
+                </div>
+                <div class="footer__goal">
+                    Сделано в качестве проекта по компьютерному практикуму
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        function Sub(){
+            var n, k, r, e, v, sum, avg;
+            n=(document.getElementById('aname').value);
+            k=parseFloat(document.getElementById('am').value);
+            r=parseFloat(document.getElementById('aj').value);
+            e=parseFloat(document.getElementById('ad').value);
+            v=parseFloat(document.getElementById('an').value);
+            // Calculating Total
+            sum=k+r+e+v;
+            avg=sum/4;
+            // Display on Student Data
+            var newTable = document.getElementById('TableScore');
+            var row = newTable.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(0);
+            var cell3 = row.insertCell(0);
+            var cell4 = row.insertCell(0);
+  
+            cell4.innerHTML= n;
+            cell3.innerHTML=sum;
+            cell2.innerHTML = avg;
+  
+            if(avg>=70){
+                cell1.innerHTML="<font color=green>Pass</font>";
+            }else{
+                cell1.innerHTML="<font color=red>Fail</font>";
+            }
+        }
+    </script>
+</body>
+</html>
