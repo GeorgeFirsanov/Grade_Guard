@@ -77,6 +77,7 @@ $bgColor--: rgb(137, 132, 36);
                     }
                 }
                 &_item {
+                    
                 }
                 &__pole {
                     
@@ -92,9 +93,12 @@ $bgColor--: rgb(137, 132, 36);
             grid-template-rows: 1fr;
             grid-template-columns: minmax(100px,200px) repeat(14, minmax(20px, 1fr)) repeat(3, minmax(100px, 1fr));
             .row__pole{
+
                 &>*{
+                    background: inherit;
+                    color: #fff;
                     margin: 2px;
-                    font-size: 1.5em;
+                    font-size: 1.2em;
                     text-align: center;
                     width: 90%;
                     &:focus{
@@ -102,11 +106,18 @@ $bgColor--: rgb(137, 132, 36);
                         
                     }
                 }
-
+                
+            }
+            .row__item{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 18px;
+            }
+            .row__item_main {
+                font-size: 1.4em;
             }
         }
-            .row__item_main {
-            }
         }
         &__buttons {
             display: flex;

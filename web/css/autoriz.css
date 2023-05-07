@@ -2,7 +2,7 @@
 @import "/css/general_style.css";
 .content__autoriz {
   border-radius: 50px;
-  box-shadow: 0 0 50px 100px #5c1b1b;
+  box-shadow: 0 0 50px 50px #5c1b1b;
 }
 .content .autoriz__form {
   display: flex;
