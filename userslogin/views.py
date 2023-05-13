@@ -6,18 +6,17 @@ from django.contrib.auth import authenticate,login
 
 def register(request):
     if request.method == 'POST':
-        print("post")
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Создан аккаунт {username}!')
-            return redirect( 'student') #!!! не работает
+            return redirect( 'student') #!!!
         else:
             return render(request,'templates/userlog/index.html',{'form':form})
     else:
         form = UserRegisterForm()
-        return render(request, 'userlog/index.html', {'form': form})
+        return render(request, 'templates/userlog/index.html', {'form': form})
 
 
 
