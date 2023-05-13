@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main'
+    'main',
+    'group',
+    'Student',
+    'Professor',
+    'userslogin'
 ]
 
 MIDDLEWARE = [
@@ -67,7 +71,6 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'grade_guard.wsgi.application'
 
 

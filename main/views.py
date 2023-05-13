@@ -1,10 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-
-
-def index(request):
-    return render(request, 'main/index.html')
+from group.models import Subject
+from userslogin import views
 
 def teacher(request):
-    return render(request, 'main/teacher.html')
-# Create your views here.
+    if request.user.is_authenticated:
+        return render(request, 'main/teacher.html')
+    else:
+        return redirect(views.register)
+
+def student(request):
+    if request.user.is_authenticated:
+        return render(request, 'front/subjects.html')
+    else:
+        return redirect(views.register)
+
+def subject(request):
+    if request.user.is_authenticated:
+            return render(request, 'front/marks.html', {'subjects': Subject.objects.all()})
+    else:
+        return redirect(views.register)
+
