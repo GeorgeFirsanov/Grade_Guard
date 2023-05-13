@@ -3,8 +3,9 @@ from . import views
 from userslogin import views as userv
 
 urlpatterns = [
-    path('', userv.register, name = 'register'),
+    path('', userv.signup, name = 'signup'),
+    path('register', userv.register, name = 'register'),
     path('teacher', views.teacher),
     path('student', views.student),
-    path('subject', views.subject),
+    path('subject', views.subject)
 ]
