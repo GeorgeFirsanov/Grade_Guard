@@ -50,6 +50,7 @@ class Category(models.Model):
 
 
 class Atom(models.Model):
+    #имя атома
     stud_obj = models.ForeignKey(Student, on_delete=models.CASCADE)
     scores = models.IntegerField(default=0)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
