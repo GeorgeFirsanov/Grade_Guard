@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="226598d1-679c-455f-b055-2b13b8a4e6f2" name="Changes" comment="da">
+    <list default="true" id="226598d1-679c-455f-b055-2b13b8a4e6f2" name="Changes" comment="add model professor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grade_guard/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/grade_guard/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/group/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/group/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/student.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userslogin/templates/userlog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/userslogin/templates/userlog/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userslogin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/userslogin/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +24,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -75,7 +77,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="origin/logic" />
                       </list>
                     </value>
                   </entry>

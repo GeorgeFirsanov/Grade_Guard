@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 {% load static %}
 
+<<<<<<< HEAD
+=======
+<h3>Уже есть аккаунт?</h3><br>
+<a href = "{% url 'register' %}">Зарегистрироваться</a>
+>>>>>>> 04716d664e804df5e053e558f1038e3ad4346235
 
 <html lang="en">
 <head>
@@ -8,15 +13,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static "css\autoriz.css" %}">
+    <link rel="stylesheet" href="{% static "css\autoriz.css"%}">
 </head>
 <body>
+<<<<<<< HEAD
     <form method = 'POST'> {% csrf_token %}
+=======
+    <form method = 'POST'>{% csrf_token %}
+>>>>>>> 04716d664e804df5e053e558f1038e3ad4346235
     <div class="wrapper">
         <header class="header">Header</header>
         <div class="content">
             <div class="autoriz">
-                <form action="#" method="get" class="autoriz__form">
+
                      <div class="autoriz__form-title">Авторизация</div>
                      <a href = "{% url 'register' %}">Зарегистрироваться</a>
                         <input class="autoriz__form-input" type="text"  name="userlog" placeholder="Логин">
@@ -26,7 +35,7 @@
                         </div>
                         <button class="autoriz__form-butt" type="submit">Вход</button>
                     </div>
-                </form>
+
             </div>
         </div>
         <footer class="footer">

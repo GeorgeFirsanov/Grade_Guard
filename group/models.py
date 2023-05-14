@@ -44,13 +44,15 @@ class Professor(models.Model):
     his_subject = models.ManyToManyField(Subject)
 
 
+
 class Category(models.Model):
     cat_name = models.CharField(max_length=32)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
-
 
 class Atom(models.Model):
     #имя атома
     stud_obj = models.ForeignKey(Student, on_delete=models.CASCADE)
     scores = models.IntegerField(default=0)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, null = True)
+
