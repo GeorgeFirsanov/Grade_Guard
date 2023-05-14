@@ -43,6 +43,44 @@ def get_professor_journal(request):
     ##dd(response)
     return JsonResponse(responseJson)
 
+def get_student_journal(request):
+    userID = 1 #default
+    if request.user.is_authenticated:
+        userID = request.user.id
+    student = Student.objects.get(id=userID)
+    subjects = Subject.objects.filter(sub_group = student.his_group)
+    #subjects = Subject.objects.all()
+    responseJson = {}
+    response = []
+    for subject in subjects:
+        subID = subject.id
+        #Atoms = Atom.objects.get(subject_id=subID)
+        Atoms = Atom.objects.filter(subject_id=subID)
+        for atom in Atoms:
+        #atom = Atom.objects.get(subject_id=subID)
+            score = atom.scores
+            teacher = Professor.objects.get(id = atom.stud_obj_id)
+            user = User.objects.get(id = teacher.user_id)
+            lastName = user.last_name
+            firstName = user.first_name
+            #group = Group.objects.get(id = teacher.his_group_id)
+            #groupName = group.group_name
+            category = Category.objects.get(id = atom.category_id)
+            categoryName = category.cat_name
+            subName = subject.sub_name
+            #Professor
+            json = {
+                "lastName" : lastName,
+                "firstName" : firstName,
+                "category" : categoryName,
+                "score" : score,
+                "subjectName" : subName,
+            }
+            response.append(json)
+    responseJson["marks"] = response
+    ##dd(response)
+    return JsonResponse(responseJson)
+
 
 def update_mark(request):
     atomId = 1
