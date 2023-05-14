@@ -7,9 +7,13 @@ from group.models import Subject, Professor, Atom, Student, Category, Group
 from userslogin import views
 
 def get_professor_journal(request):
+    userID = 1 #default
+    if request.user.is_authenticated:
+        userID = request.user.id
+
     #dd(Professor.objects.all())
     #dd(get_user_model())
-    subjects = Professor.objects.get(id=1).his_subject.all()
+    subjects = Professor.objects.get(id=userID).his_subject.all()
     responseJson = {}
     response = []
     for subject in subjects:
@@ -44,11 +48,13 @@ def get_professor_journal(request):
     return JsonResponse(responseJson)
 
 def get_student_journal(request):
+
     userID = 1 #default
     if request.user.is_authenticated:
         userID = request.user.id
     student = Student.objects.get(id=userID)
     subjects = Subject.objects.filter(sub_group = student.his_group)
+
     #subjects = Subject.objects.all()
     responseJson = {}
     response = []
