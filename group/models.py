@@ -54,4 +54,5 @@ class Atom(models.Model):
     scores = models.IntegerField(default=0)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, null = True)
+    atom_name = models.CharField(max_length=16, null = True)
 
