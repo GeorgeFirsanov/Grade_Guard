@@ -7,9 +7,9 @@ from userslogin import views
 def teacher(request):
     
     if request.user.is_authenticated:
-        return render(request, 'main/teacher.html')
+        return render(request, 'front/gropus.html')
     else:
-        return redirect(views.register)
+        return redirect(views.signup)
 
 def student(request):
     #'or True' is temporary solution
@@ -17,12 +17,12 @@ def student(request):
         data = get_student_journal_html(request)
         return render(request, 'front/subjects.html', data)
     else:
-        return redirect(views.register)
+        return redirect(views.signup)
 
 def subject(request):
     #'or True' is temporary solution
     if request.user.is_authenticated or True:
             return render(request, 'front/marks.html', {'subjects': Subject.objects.all()})
     else:
-        return redirect(views.register)
+        return redirect(views.signup)
 

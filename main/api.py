@@ -95,7 +95,6 @@ def get_student_journal_html(request):
     student = Student.objects.get(id=userID)
     subjects = Subject.objects.filter(sub_group = student.his_group)
 
-    #subjects = Subject.objects.all()
     sub_list = []
 
     for subject in subjects:
@@ -126,6 +125,46 @@ def get_student_journal_html(request):
     lname = request.user.last_name
     group = student.his_group
     data = {"first_name": fname, "last_name": lname, "group": group, "subjects": sub_list}
+    return data
+
+def get_teacher_journal_html(request):
+
+    userID = 1 #default
+    if request.user.is_authenticated:
+        userID = request.user.id
+    teacher = Professor.objects.get(id=userID)
+    subjects = Subject.objects.filter(id = teacher.his_subject)
+
+    sub_list = []
+
+    for subject in subjects:
+        subID = subject.id
+        Categories = Category.objects.filter(subject = subID)
+        cat_list = []
+
+        for category in Categories:
+            catID = category.id
+            Atoms = Atom.objects.filter(category=catID) #.filter(stud_obj=userID) #ADD IT TO MAKE CORRECT QUERY!!!
+            atom_list = []
+
+            for atom in Atoms:
+                score = atom.scores
+                atom_name = atom.atom_name
+                atom_data = {
+                    "score" : score,
+                    "atom_name": atom_name}
+                atom_list.append(atom_data)
+
+            category_data = {"cat_name": category.cat_name, "atoms": atom_list}       
+            cat_list.append(category_data) 
+
+        subject_data = {"sub_name": subject.sub_name, "categories": cat_list}
+        sub_list.append(subject_data)
+
+    fname = request.user.first_name
+    lname = request.user.last_name
+    group = student.his_group
+    data = {"first_name": fname, "last_name": lname, "groups": group}
     return data
 
 def update_mark(request):
