@@ -119,7 +119,7 @@ def get_student_journal_html(request):
             category_data = {"cat_name": category.cat_name, "atoms": atom_list}       
             cat_list.append(category_data) 
 
-        subject_data = {"sub_name": subject.sub_name, "categories": cat_list}
+        subject_data = {"sub_name": subject.sub_name, "categories": cat_list, "sub_id": subject.id}
         sub_list.append(subject_data)
 
     fname = request.user.first_name
