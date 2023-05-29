@@ -87,13 +87,20 @@ def get_student_journal(request):
     ##dd(response)
     return JsonResponse(responseJson)
 
-def get_student_journal_html(request):
+def get_student_journal_html(request, subjID = None):
 
     userID = 1 #default
     if request.user.is_authenticated:
         userID = request.user.id
+    else:
+        return redirect(views.signup)
     student = Student.objects.get(id=userID)
-    subjects = Subject.objects.filter(sub_group = student.his_group)
+
+    subjects = None
+    if subjID == None:
+        subjects = Subject.objects.filter(sub_group = student.his_group)
+    else: 
+        subjects = Subject.objects.filter(sub_group = student.his_group).filter(id = subjID)
 
     sub_list = []
 

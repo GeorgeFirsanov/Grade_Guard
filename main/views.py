@@ -11,10 +11,10 @@ def teacher(request):
     else:
         return redirect(views.signup)
 
-def student(request):
+def student(request, subject_ID):
     #'or True' is temporary solution
     if request.user.is_authenticated:
-        data = get_student_journal_html(request)
+        data = get_student_journal_html(request, subjID=subject_ID)
         return render(request, 'front/subjects.html', data)
     else:
         return redirect(views.signup)

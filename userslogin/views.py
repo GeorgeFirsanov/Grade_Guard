@@ -33,6 +33,7 @@ def signup(request):
             password = form.cleaned_data['password']
             user = authenticate(username = username,password = password)
             login(request= request, user= user)
+            print("here")
             return redirect('/student')
         else:
             return render(request,'userlog/index.html',{'form':form})

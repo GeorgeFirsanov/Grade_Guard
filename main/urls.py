@@ -8,10 +8,10 @@ urlpatterns = [
     path('logout', userv.logout_view,  name='logout'),
 
     path('teacher', views.teacher),
-    path('student', views.student),
+    path(r'^student/(?P<value>\d+)/$', views.student),
     path('subject', views.subject),
 
     path('api/get_journal', api.get_professor_journal),
-    path('api/mymarks', api.get_student_journal),
+    path('api/mymarks', api.get_student_journal, name = 'api/mymarks'),
     path('api/updatemark', api.update_mark),
 ]
