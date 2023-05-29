@@ -47,49 +47,7 @@ def get_professor_journal(request):
     ##dd(response)
     return JsonResponse(responseJson)
 
-def get_student_journal(request):
-
-    userID = 1 #default
-    if request.user.is_authenticated:
-        userID = request.user.id
-    student = Student.objects.get(id=userID)
-    subjects = Subject.objects.filter(sub_group = student.his_group)
-
-    #subjects = Subject.objects.all()
-    responseJson = {}
-    response = []
-    for subject in subjects:
-        subID = subject.id
-        #Atoms = Atom.objects.get(subject_id=subID)
-        Atoms = Atom.objects.filter(subject_id=subID)
-        for atom in Atoms:
-        #atom = Atom.objects.get(subject_id=subID)
-            score = atom.scores
-            teacher = Professor.objects.get(id = atom.stud_obj_id)
-            user = User.objects.get(id = teacher.user_id)
-            lastName = user.last_name
-            firstName = user.first_name
-            #group = Group.objects.get(id = teacher.his_group_id)
-            #groupName = group.group_name
-            category = Category.objects.get(id = atom.category_id)
-            categoryName = category.cat_name
-            subName = subject.sub_name
-            #Professor
-            json = {
-                "lastName" : lastName,
-                "firstName" : firstName,
-                "category" : categoryName,
-                "score" : score,
-                "subjectName" : subName,
-            }
-            response.append(json)
-    responseJson["marks"] = response
-    ##dd(response)
-    return JsonResponse(responseJson)
-
 def get_student_journal_html(request, subjID = None):
-
-    userID = 1 #default
     if request.user.is_authenticated:
         userID = request.user.id
     else:
@@ -125,7 +83,8 @@ def get_student_journal_html(request, subjID = None):
             category_data = {"cat_name": category.cat_name, "atoms": atom_list}       
             cat_list.append(category_data) 
 
-        subject_data = {"sub_name": subject.sub_name, "categories": cat_list}
+        #subject_data = {"sub_name": subject.sub_name, "categories": cat_list}
+        subject_data = {"sub_name": subject.sub_name, "categories": cat_list, "sub_id": subject.id}
         sub_list.append(subject_data)
 
     fname = request.user.first_name
@@ -134,45 +93,30 @@ def get_student_journal_html(request, subjID = None):
     data = {"first_name": fname, "last_name": lname, "group": group, "subjects": sub_list}
     return data
 
-def get_teacher_journal_html(request):
-
-    userID = 1 #default
+def get_student_subjects_html(request):
+    userID = None
     if request.user.is_authenticated:
         userID = request.user.id
-    teacher = Professor.objects.get(id=userID)
-    subjects = Subject.objects.filter(id = teacher.his_subject)
+    else:
+        return redirect(views.signup)
+    student = Student.objects.get(id=userID)
+
+    subjects = Subject.objects.filter(sub_group = student.his_group)
 
     sub_list = []
 
     for subject in subjects:
         subID = subject.id
-        Categories = Category.objects.filter(subject = subID)
-        cat_list = []
-
-        for category in Categories:
-            catID = category.id
-            Atoms = Atom.objects.filter(category=catID) #.filter(stud_obj=userID) #ADD IT TO MAKE CORRECT QUERY!!!
-            atom_list = []
-
-            for atom in Atoms:
-                score = atom.scores
-                atom_name = atom.atom_name
-                atom_data = {
-                    "score" : score,
-                    "atom_name": atom_name}
-                atom_list.append(atom_data)
-
-            category_data = {"cat_name": category.cat_name, "atoms": atom_list}       
-            cat_list.append(category_data) 
-
-        subject_data = {"sub_name": subject.sub_name, "categories": cat_list}
+        #subject_data = {"sub_name": subject.sub_name, "categories": cat_list}
+        subject_data = {"sub_name": subject.sub_name, "categories": cat_list, "sub_id": subject.id}
         sub_list.append(subject_data)
 
     fname = request.user.first_name
     lname = request.user.last_name
     group = student.his_group
-    data = {"first_name": fname, "last_name": lname, "groups": group}
+    data = {"first_name": fname, "last_name": lname, "group": group, "subjects": sub_list}
     return data
+
 
 def update_mark(request):
     atomId = 1

@@ -16,7 +16,7 @@
             <div class="content__head">Выберите предмет</div>
             <div class="content__spisok">
                 {% for subj in subjects %}
-                <a href="{% url 'api/mymarks' #subj.id %}" class="btn btn-primary">{{subj.sub_name}}</a>
+                <a href="{% url 'subject' subjID=subj.sub_id %}" class="btn btn-primary">{{subj.sub_name}}</a>
                 {% endfor %}
             </div>
         </div>
