@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django_dump_die.middleware import dd
 from group.models import Subject, Professor, Atom, Student, Category, Group
-from userslogin import views
+from userslogin import views as views
+from main import views as mainviews
 
 def get_professor_journal(request):
     userID = 1 #default
@@ -47,6 +48,7 @@ def get_professor_journal(request):
     ##dd(response)
     return JsonResponse(responseJson)
 
+#уже не нужен, но для пронимания общего парсинга
 def get_student_journal_html(request, subjID = None):
     if request.user.is_authenticated:
         userID = request.user.id
@@ -108,13 +110,56 @@ def get_student_subjects_html(request):
     for subject in subjects:
         subID = subject.id
         #subject_data = {"sub_name": subject.sub_name, "categories": cat_list}
-        subject_data = {"sub_name": subject.sub_name, "categories": cat_list, "sub_id": subject.id}
+        subject_data = {"sub_name": subject.sub_name, "sub_id": subject.id}
         sub_list.append(subject_data)
 
     fname = request.user.first_name
     lname = request.user.last_name
     group = student.his_group
     data = {"first_name": fname, "last_name": lname, "group": group, "subjects": sub_list}
+    return data
+
+def get_student_categories_html(request, subjID= None):
+
+    if request.user.is_authenticated:
+        userID = request.user.id
+    else:
+        return redirect(views.signup)
+    student = Student.objects.get(id=userID)
+
+    if subjID == None:
+        return redirect(mainviews.student)
+    else:
+        pass
+
+
+    subject = Subject.objects.get(id=subjID)
+
+    subID = subject.id
+    Categories = Category.objects.filter(subject = subID)
+    cat_list = []
+
+    for category in Categories:
+        catID = category.id
+        Atoms = Atom.objects.filter(category=catID) #.filter(stud_obj=userID) #ADD IT TO MAKE CORRECT QUERY!!!
+        atom_list = []
+
+        for atom in Atoms:
+            score = atom.scores
+            atom_name = atom.atom_name
+            atom_data = {
+                "score" : score,
+                "atom_name": atom_name}
+            atom_list.append(atom_data)
+
+        category_data = {"cat_name": category.cat_name, "atoms": atom_list}       
+        cat_list.append(category_data) 
+
+    fname = request.user.first_name
+    lname = request.user.last_name
+    group = student.his_group
+    data = {"first_name": fname, "last_name": lname, "group": group, "sub_name": subject.sub_name, 
+            "categories": cat_list, "sub_id": subject.id}
     return data
 
 

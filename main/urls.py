@@ -12,6 +12,6 @@ urlpatterns = [
     path('subject/<int:subjID>/', views.subject, name = "subject"),
 
     path('api/get_journal', api.get_professor_journal),
-    path('api/mymarks/<int:subjID>/', api.get_student_journal, name = 'api/mymarks'),
+    path('api/mymarks/<int:subjID>/', api.get_student_journal_html, name = 'api/mymarks'),
     path('api/updatemark', api.update_mark),
 ]
