@@ -1,71 +1,135 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static "css/tabel.css" %}">
+    <link rel="stylesheet" href="css/marks.css">
 </head>
 <body>
-    <header>
-        <!--Тут флексовая шапка-->
-    </header>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__img">
+                <img src="/img/Gerb.jpg" alt="Gerb">
+            </div>
+            <ul class="header__nav">
+                <li class="header__item"><a href="">Группа</a></li>
+                <li class="header__item"><a href="">Группа</a></li>
+                <li class="header__item"><a href="">Группа</a></li>
+                <li class="header__item"><a href="">Группа</a></li>
+                
+            </ul>
+        </header>
+        <div class="content">
+            <div class="content__tables">
 
-    <table>
-        <caption>Количество всех баллов</caption>
-        <colgroup>
-            <col span="1" width="30%">
-        </colgroup>
-        <tr>
-            <th>За что начислят</th>
-            <th>Сколько баллов</th>
-        </tr>
-        <tr>
-            <td>Тесты мудл</td>
-            <td></td>
-        </tr>
-        <tr><td class="include">test1</td></tr>
-        <tr><td class="include">test1</td></tr>
-        <tr><td class="include">test1</td></tr>
-        <tr>
-            <td>Посещения</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Лабы</td>
-            <td></td>
-        </tr>
-        <tr><td class="include">lab1</td><td></td><td><td></td></td></tr>
-        <tr><td class="include">lab1</td></tr>
-        <tr><td class="include">lab1</td></tr>
-        
-        <tr>
-            <td>Доп баллы</td>
-            <td></td>
-        </tr>
-    </table>
-
-    <footer>
-        <div>
-            <p>Lorem ipsum dolor sit amet.</p>
+                <div class="content__table table table_main">
+                    <h2 class="table_main__title title">Общее количество баллов</h2>
+                    <div class="table__row row">
+                        <div class="row__name">Тесты Moodle</div>
+                        <div class="row__score">20</div>
+                    </div>
+                    <div class="table__row row">
+                        <div class="row__name">Посещения</div>
+                        <div class="row__score">10</div>
+                    </div>
+                    <div class="table__row row">
+                        <div class="row__name">Лабы</div>
+                        <div class="row__score">20</div>
+                    </div>
+                    <div class="table__row row">
+                        <div class="row__name">Доп баллы</div>
+                        <div class="row__score">20</div>
+                    </div>
+                    <div class="table__row row table_main__row_general">
+                        <div class="row__name">Сумма баллов</div>
+                        <div class="row__score">20</div>
+                    </div>
+                </div>
+                <div class="content__table table table_specific table_moodle">
+                    <h2 class="table_specific__title title">Тесты Moodle</h2>
+                    <div class="table__row row">
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                    </div>
+                    <div class="table__row row">
+                        <div class="row__score">10</div>
+                        <div class="row__score">10</div>
+                        <div class="row__score">0</div>
+                    </div>
+                </div>
+                <div class="content__table table table_specific table_visits">
+                    <h2 class="table_specific__title title">Посещения</h2>
+                    <div class="table__row row">
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                    </div>
+                    <div class="table__row row">
+                        <div class="row__score">10</div>
+                        <div class="row__score">10</div>
+                        <div class="row__score">0</div>
+                        <div class="row__score">10</div>
+                        <div class="row__score">10</div>
+                        <div class="row__score">0</div>
+                    </div>
+                </div>
+                <div class="content__table table table_specific table_labs">
+                    <h2 class="table_specific__title title">Лабораторные работы</h2>
+                    <div class="table__row row">
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                    </div>
+                    <div class="table__row row">
+                        <div class="row__score">10</div>
+                        <div class="row__score">10</div>
+                        <div class="row__score">0</div>
+                        <div class="row__score">10</div>
+                        <div class="row__score">10</div>
+                        <div class="row__score">0</div>
+                    </div>
+                </div>
+                <div class="content__table table table_specific table_addition">
+                    <h2 class="table_specific__title title">Дополнительные баллы</h2>
+                    <div class="table__row row">
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                        <div class="row__name">date</div>
+                    </div>
+                    <div class="table__row row">
+                        <div class="row__score">0</div>
+                        <div class="row__score">0</div>
+                        <div class="row__score">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="content__link">
+                <a href="/O712B.html">Посмотреть одногруппников</a>
+            </div>
         </div>
-        <!--Авторы и дата проекта-->
-    </footer>
-    <script>
-        $(function()
-        {
-            $('td').click(function()	{
-            var val = $(this).html();	//получаем значение ячейки
-            //формируем код текстового поля
-            var code = '<input type="text" id="edit" value="'+val+'" />';
-            //удаляем содержимое ячейки, вставляем в нее сформированное поле
-            $(this).empty().append(code);
-            //устанавливаем фокус на свеженарисованное поле
-            $('#edit').focus();
-	    });
-        });
-    </script>
+        <footer class="footer">
+            <div class="footer__row">
+                <div class="footer__authors">
+                    Авторы:
+                    <a href="https://vk.com/ru.bachatero">Максим Булычев</a>
+                    <a href="https://vk.com/firsang">Георгий Фирсанов</a>
+                    <a href="https://vk.com/dos100evskiy">Андрей Юрков</a>
+                    <a href="https://vk.com/zl0i_belyi">Владислав Квасюк</a>
+                </div>
+                <div class="footer__goal">
+                    Сделано в качестве проекта по компьютерному практикуму
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

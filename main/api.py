@@ -48,6 +48,70 @@ def get_professor_journal(request):
     ##dd(response)
     return JsonResponse(responseJson)
 
+def get_professor_subjects_html(request):
+    userID = None
+    if request.user.is_authenticated:
+        userID = request.user.id
+    else:
+        return redirect(views.signup)
+    teacher = Professor.objects.get(id=userID)
+
+    subjects = Subject.objects.filter(id = teacher.his_subject)
+
+    sub_list = []
+
+    for subject in subjects:
+        subject_data = {"sub_name": subject.sub_name, "sub_id": subject.id}
+        sub_list.append(subject_data)
+
+    fname = request.user.first_name
+    lname = request.user.last_name
+    data = {"first_name": fname, "last_name": lname, "subjects": sub_list}
+    return data
+
+def get_professor_categories_html(request, subjID= None):
+
+    if request.user.is_authenticated:
+        userID = request.user.id
+    else:
+        return redirect(views.signup)
+    teacher = Professor.objects.get(id=userID)
+
+    if subjID == None:
+        return redirect(mainviews.student)
+    else:
+        pass
+
+
+    subject = Subject.objects.get(id=subjID)
+
+    subID = subject.id
+    Categories = Category.objects.filter(subject = subID)
+    cat_list = []
+
+    for category in Categories:
+        catID = category.id
+        Atoms = Atom.objects.filter(category=catID) #.filter(stud_obj=userID) #ADD IT TO MAKE CORRECT QUERY!!!
+        atom_list = []
+
+        for atom in Atoms:
+            score = atom.scores
+            atom_name = atom.atom_name
+            atom_data = {
+                "score" : score,
+                "atom_name": atom_name}
+            atom_list.append(atom_data)
+
+        category_data = {"cat_name": category.cat_name, "atoms": atom_list}       
+        cat_list.append(category_data) 
+
+    fname = request.user.first_name
+    lname = request.user.last_name
+    group = subject.sub_group
+    data = {"first_name": fname, "last_name": lname, "group": group, "sub_name": subject.sub_name, 
+            "categories": cat_list, "sub_id": subject.id}
+    return data
+
 #уже не нужен, но для пронимания общего парсинга
 def get_student_journal_html(request, subjID = None):
     if request.user.is_authenticated:
