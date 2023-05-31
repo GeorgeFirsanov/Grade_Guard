@@ -227,9 +227,32 @@ def get_student_categories_html(request, subjID= None):
     return data
 
 
-def update_mark(request):
-    atomId = 1
-    score = 1
-    Atom.objects.filter(id = atomId).update(scores = score)
+def update_mark(request, atomID= None, score= None):
+    if atomID == None or score == None:
+        return  JsonResponse({"status": "fail"})
+
+    Atom.objects.filter(id = atomID).update(scores = score)
     return JsonResponse({"status": "success"})
 
+
+def  look_group(request):
+    if request.user.is_authenticated:
+        userID = request.user.id
+    else:
+        return redirect(views.signup)
+    student = Student.objects.get(id= userID)
+
+    group = student.his_group_id
+    students = student.objects.filter(student = group)
+
+    stud_list = []
+
+    for student in students:
+            # subject_data = {"sub_name": subject.sub_name, "categories": cat_list}
+
+            #user = student.user.id
+        stud_data = {"first_name": student.user.first_name, "last_name": student.user.last_name, "user_id": student.user.id}
+        stud_list.append(stud_data)
+
+    data = {"group": group.group_name, "group_id": group, "students": stud_list}
+    return data
