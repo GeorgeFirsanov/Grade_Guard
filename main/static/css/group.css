@@ -1,5 +1,5 @@
-@import "/css/zero_style.css";
-@import "/css/general_style.css";
+@import "./zero_style.css";
+@import "./general_style.css";
 .content__head {
   color: #fff;
   font-size: 30px;
