@@ -240,17 +240,14 @@ def  look_group(request):
         userID = request.user.id
     else:
         return redirect(views.signup)
-    student = Student.objects.get(id= userID)
+    student = Student.objects.get(id = userID)
 
-    group = student.his_group_id
-    students = student.objects.filter(student = group)
+    group = student.his_group
+    students = Student.objects.filter(his_group = group)
 
     stud_list = []
 
     for student in students:
-            # subject_data = {"sub_name": subject.sub_name, "categories": cat_list}
-
-            #user = student.user.id
         stud_data = {"first_name": student.user.first_name, "last_name": student.user.last_name, "user_id": student.user.id}
         stud_list.append(stud_data)
 
