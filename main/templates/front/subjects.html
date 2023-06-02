@@ -7,18 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static "css/subjects.css" %}">
+    <link rel="stylesheet" href='{% static "css/subjects.css" %}'>
 </head>
 <body>
     <div class="wrapper">
-        <header class="header">Header</header>
+        <header class="header">Предметы</header>
         <div class="content">
             <div class="content__head">Выберите предмет</div>
             <div class="content__spisok">
                 {% for subj in subjects %}
-                <a href="/subjects/Math.html?subjId={{subj.sub_id}}" class="content__item">{{subj.sub_name}}</a><!--сменить Math.html; после "subjid=" идёт id предмета в URL-parametrs-->
+                <a href="{% url 'subject' subjID=subj.sub_id %}"  class="content__item">{{subj.sub_name}}</a>
                 {% endfor %}
-
             </div>
         </div>
         <footer class="footer">
