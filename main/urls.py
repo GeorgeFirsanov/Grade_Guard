@@ -8,7 +8,7 @@ urlpatterns = [
     path('logout', userv.logout_view,  name='logout'),
 
     path('teacher', views.teacher),
-    path('student', views.student),
+    path('student', views.student, name = "student"),
     path('subject/<int:subjID>/', views.subject, name = "subject"),
 
     path('api/get_journal', api.get_professor_journal),

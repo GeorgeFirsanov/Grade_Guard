@@ -1,119 +1,59 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/marks.css">
+    <link rel="stylesheet" href="{% static "css/marks.css" %}">
 </head>
 <body>
     <div class="wrapper">
         <header class="header">
             <div class="header__img">
-                <img src="/img/Gerb.jpg" alt="Gerb">
+                <img src="{% static "/img/Gerb.jpg" %}" alt="Gerb">
             </div>
             <ul class="header__nav">
-                <li class="header__item"><a href="">Группа</a></li>
-                <li class="header__item"><a href="">Группа</a></li>
-                <li class="header__item"><a href="">Группа</a></li>
-                <li class="header__item"><a href="">Группа</a></li>
+                <li class="header__item"><a href="{% url 'student' %}">{{first_name}} {{last_name}}</a></li>
+                <li class="header__item"><a href="{% url 'student' %}">{{group}}</a></li>
+                <li class="header__item"><a href="{% url 'student' %}">{{sub_name}}</a></li>
                 
             </ul>
         </header>
         <div class="content">
             <div class="content__tables">
-
                 <div class="content__table table table_main">
                     <h2 class="table_main__title title">Общее количество баллов</h2>
+                    {% for category in categories %}
                     <div class="table__row row">
-                        <div class="row__name">Тесты Moodle</div>
-                        <div class="row__score">20</div>
+                        <div class="row__name">{{category.cat_name}}</div>
+                        <div class="row__score">{{category.score}}</div>
                     </div>
-                    <div class="table__row row">
-                        <div class="row__name">Посещения</div>
-                        <div class="row__score">10</div>
-                    </div>
-                    <div class="table__row row">
-                        <div class="row__name">Лабы</div>
-                        <div class="row__score">20</div>
-                    </div>
-                    <div class="table__row row">
-                        <div class="row__name">Доп баллы</div>
-                        <div class="row__score">20</div>
-                    </div>
+                    {% endfor %}
                     <div class="table__row row table_main__row_general">
                         <div class="row__name">Сумма баллов</div>
-                        <div class="row__score">20</div>
+                        <div class="row__score">{{score}}</div>
                     </div>
                 </div>
+                {% for category in categories %}
                 <div class="content__table table table_specific table_moodle">
-                    <h2 class="table_specific__title title">Тесты Moodle</h2>
+                    <h2 class="table_specific__title title">{{category.cat_name}}</h2>
                     <div class="table__row row">
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
+                        {% for atom in category.atoms %}
+                        <div class="row__name">{{atom.atom_name}}</div>
+                        {% endfor %}
                     </div>
                     <div class="table__row row">
-                        <div class="row__score">10</div>
-                        <div class="row__score">10</div>
-                        <div class="row__score">0</div>
-                    </div>
-                </div>
-                <div class="content__table table table_specific table_visits">
-                    <h2 class="table_specific__title title">Посещения</h2>
-                    <div class="table__row row">
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                    </div>
-                    <div class="table__row row">
-                        <div class="row__score">10</div>
-                        <div class="row__score">10</div>
-                        <div class="row__score">0</div>
-                        <div class="row__score">10</div>
-                        <div class="row__score">10</div>
-                        <div class="row__score">0</div>
+                        {% for atom in category.atoms %}
+                        <div class="row__score">{{atom.score}}</div>
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="content__table table table_specific table_labs">
-                    <h2 class="table_specific__title title">Лабораторные работы</h2>
-                    <div class="table__row row">
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                    </div>
-                    <div class="table__row row">
-                        <div class="row__score">10</div>
-                        <div class="row__score">10</div>
-                        <div class="row__score">0</div>
-                        <div class="row__score">10</div>
-                        <div class="row__score">10</div>
-                        <div class="row__score">0</div>
-                    </div>
-                </div>
-                <div class="content__table table table_specific table_addition">
-                    <h2 class="table_specific__title title">Дополнительные баллы</h2>
-                    <div class="table__row row">
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                        <div class="row__name">date</div>
-                    </div>
-                    <div class="table__row row">
-                        <div class="row__score">0</div>
-                        <div class="row__score">0</div>
-                        <div class="row__score">0</div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             <div class="content__link">
-                <a href="/O712B.html">Посмотреть одногруппников</a>
+                <a href="/O712B.html">Список группы</a>
             </div>
         </div>
         <footer class="footer">
@@ -125,6 +65,7 @@
                     <a href="https://vk.com/dos100evskiy">Андрей Юрков</a>
                     <a href="https://vk.com/zl0i_belyi">Владислав Квасюк</a>
                 </div>
+                <a href="{% url 'logout' %}">Выход</a>
                 <div class="footer__goal">
                     Сделано в качестве проекта по компьютерному практикуму
                 </div>

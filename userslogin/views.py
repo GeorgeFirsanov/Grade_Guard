@@ -5,6 +5,7 @@ from django_dump_die.middleware import dd
 from .forms import UserRegisterForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate,login, logout
+from .helpdefs import is_member
 
 def register(request):
     if request.method == 'POST':
@@ -15,7 +16,6 @@ def register(request):
             username = form.cleaned_data.get('username')
             messages.success(request, f'Создан аккаунт {username}!')
             #return render(request, 'userlog/index.html', {'form': form})
-            print("in register")
             return redirect('/student') 
         else:
             return render(request,'userlog/index.html', {'form':form})
@@ -33,8 +33,10 @@ def signup(request):
             password = form.cleaned_data['password']
             user = authenticate(username = username,password = password)
             login(request= request, user= user)
-            print("here")
-            return redirect('/student')
+            if is_member(user):
+                return redirect('/teacher')
+            else:
+                return redirect('/student')
         else:
             return render(request,'userlog/index.html',{'form':form})
      
@@ -46,3 +48,4 @@ def logout_view(request):
     if request.user.is_authenticated:
         logout(request)
     return redirect('/')
+

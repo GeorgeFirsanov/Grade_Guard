@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse, JsonResponse
 from django_dump_die.middleware import dd
 from group.models import Subject, Professor, Atom, Student, Category, Group
@@ -14,7 +14,7 @@ def get_professor_journal(request):
 
     #dd(Professor.objects.all())
     #dd(get_user_model())
-    subjects = Professor.objects.get(id=userID).his_subject.all()
+    subjects = Professor.objects.get(user=userID).his_subject.all()
     responseJson = {}
     response = []
     for subject in subjects:
@@ -54,7 +54,7 @@ def get_professor_subjects_html(request):
         userID = request.user.id
     else:
         return redirect(views.signup)
-    teacher = Professor.objects.get(id=userID)
+    teacher = Professor.objects.get(user=userID)
 
     subjects = Subject.objects.filter(id = teacher.his_subject)
 
@@ -75,7 +75,7 @@ def get_professor_categories_html(request, subjID= None):
         userID = request.user.id
     else:
         return redirect(views.signup)
-    teacher = Professor.objects.get(id=userID)
+    teacher = Professor.objects.get(user=userID)
 
     if subjID == None:
         return redirect(mainviews.student)
@@ -118,7 +118,7 @@ def get_student_journal_html(request, subjID = None):
         userID = request.user.id
     else:
         return redirect(views.signup)
-    student = Student.objects.get(id=userID)
+    student = Student.objects.get(user=userID)
 
     subjects = None
     if subjID == None:
@@ -164,8 +164,10 @@ def get_student_subjects_html(request):
     if request.user.is_authenticated:
         userID = request.user.id
     else:
-        return redirect(views.signup)
-    student = Student.objects.get(id=userID)
+        raise Exception("not authenticated")
+    
+    student = Student.objects.get(user=userID)
+    #student = get_object_or_404(Student, id = userID)
 
     subjects = Subject.objects.filter(sub_group = student.his_group)
 
@@ -189,7 +191,7 @@ def get_student_categories_html(request, subjID= None):
         userID = request.user.id
     else:
         return redirect(views.signup)
-    student = Student.objects.get(id=userID)
+    student = Student.objects.get(user=userID)
 
     if subjID == None:
         return redirect(mainviews.student)
@@ -202,28 +204,30 @@ def get_student_categories_html(request, subjID= None):
     subID = subject.id
     Categories = Category.objects.filter(subject = subID)
     cat_list = []
-
+    total_score = 0
     for category in Categories:
         catID = category.id
         Atoms = Atom.objects.filter(category=catID) #.filter(stud_obj=userID) #ADD IT TO MAKE CORRECT QUERY!!!
         atom_list = []
-
+        cat_total_score = 0
         for atom in Atoms:
             score = atom.scores
+            cat_total_score += score
             atom_name = atom.atom_name
             atom_data = {
                 "score" : score,
                 "atom_name": atom_name}
             atom_list.append(atom_data)
 
-        category_data = {"cat_name": category.cat_name, "atoms": atom_list}       
+        category_data = {"cat_name": category.cat_name, "atoms": atom_list, "score": cat_total_score}       
         cat_list.append(category_data) 
+        total_score += cat_total_score
 
     fname = request.user.first_name
     lname = request.user.last_name
     group = student.his_group
     data = {"first_name": fname, "last_name": lname, "group": group, "sub_name": subject.sub_name, 
-            "categories": cat_list, "sub_id": subject.id}
+            "categories": cat_list, "sub_id": subject.id, "score": total_score}
     return data
 
 

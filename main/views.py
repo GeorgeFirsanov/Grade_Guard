@@ -5,7 +5,6 @@ from main.api import get_student_subjects_html, get_student_categories_html
 from userslogin import views
 
 def teacher(request):
-    
     if request.user.is_authenticated:
         return render(request, 'front/gropus.html')
     else:
@@ -14,7 +13,11 @@ def teacher(request):
 def student(request):
     #'or True' is temporary solution
     if request.user.is_authenticated:
-        data = get_student_subjects_html(request)
+        data = None
+        try:
+            data = get_student_subjects_html(request)
+        except Exception:
+            redirect(views.signup)
         return render(request, 'front/subjects.html', data)
     else:
         return redirect(views.signup)
