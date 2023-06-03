@@ -244,7 +244,7 @@ def  look_group(request):
         userID = request.user.id
     else:
         return redirect(views.signup)
-    student = Student.objects.get(id = userID)
+    student = Student.objects.get(user_id = userID)
 
     group = student.his_group
     students = Student.objects.filter(his_group = group)

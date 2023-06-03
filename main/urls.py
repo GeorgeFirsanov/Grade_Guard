@@ -10,8 +10,11 @@ urlpatterns = [
     path('teacher', views.teacher),
     path('student', views.student, name = "student"),
     path('subject/<int:subjID>/', views.subject, name = "subject"),
+    path('myGroup', views.myGroup),
 
     path('api/get_journal', api.get_professor_journal),
     path('api/mymarks/<int:subjID>/', api.get_student_journal_html, name = 'api/mymarks'),
     path('api/updatemark', api.update_mark),
+
+    path('test', api.look_group)
 ]
