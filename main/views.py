@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from group.models import Subject
-from main.api import get_student_subjects_html, get_student_categories_html, look_group
+from main.api import get_student_subjects_html, get_student_categories_html, look_group, get_professor_subjects
 from userslogin import views
 
 def teacher(request):
@@ -37,3 +37,9 @@ def myGroup(request):
     else:
         return redirect(views.signup)
 
+def subjucts_for_prof(request):
+    if request.user.is_authenticated:
+            data = get_professor_subjects(request)
+            return render(request, 'front/subjects_prof.html', data)
+    else:
+        return redirect(views.signup)

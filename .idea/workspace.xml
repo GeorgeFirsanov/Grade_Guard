@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="226598d1-679c-455f-b055-2b13b8a4e6f2" name="Changes" comment="add model professor">
+    <list default="true" id="226598d1-679c-455f-b055-2b13b8a4e6f2" name="Changes" comment="add option to look &quot;my group&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/front/marks.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/front/marks.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/O712B.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/front/myGroup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userslogin/helpdefs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userslogin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/userslogin/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,14 +35,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "E:/GitHub/Grade_Guard/main/templates/front"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/GitHub/Grade_Guard/main/templates/front&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\GitHub\Grade_Guard\main\templates\front" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\GitHub\Grade_Guard\main\templates\front" />
     </key>
@@ -70,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678696282503</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add option to look &quot;my group&quot;">
+      <created>1685785191424</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685785191424</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,6 +108,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="da" />
-    <option name="LAST_COMMIT_MESSAGE" value="da" />
+    <MESSAGE value="add option to look &quot;my group&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="add option to look &quot;my group&quot;" />
   </component>
 </project>

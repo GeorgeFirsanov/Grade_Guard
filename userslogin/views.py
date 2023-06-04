@@ -5,7 +5,6 @@ from django_dump_die.middleware import dd
 from .forms import UserRegisterForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate,login, logout
-from .helpdefs import is_member
 
 def register(request):
     if request.method == 'POST':
@@ -33,7 +32,7 @@ def signup(request):
             password = form.cleaned_data['password']
             user = authenticate(username = username,password = password)
             login(request= request, user= user)
-            if is_member(user):
+            if hasattr(user, 'professor'):
                 return redirect('/teacher')
             else:
                 return redirect('/student')
