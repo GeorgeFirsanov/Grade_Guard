@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href='{% static "css/subjects.css" %}'>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">Предметы</header>
+        <div class="content">
+            <div class="content__head">Выберите предмет и группу</div>
+            <div class="content__spisok">
+                {% for subj in subjects %}
+                <a href="{% url 'subject' subjID=subj.sub_id %}"  class="content__item" class="content__item">{{subj.sub_name}}{{subj.group}}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer__row">
+                <div class="footer__authors">
+                    Авторы: <br>
+                    <a href="https://vk.com/ru.bachatero">Максим Булычев</a><br>
+                    <a href="https://vk.com/firsang">Георгий Фирсанов</a><br>
+                    <a href="https://vk.com/dos100evskiy">Андрей Юрков</a><br>
+                    <a href="https://vk.com/zl0i_belyi">Владислав Квасюк</a> <br>
+                </div>
+                <a href="{% url 'logout' %}">Выход</a>
+                <div class="footer__goal">
+                    Сделано в качестве проекта по компьютерному практикуму
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

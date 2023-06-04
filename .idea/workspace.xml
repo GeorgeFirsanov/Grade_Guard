@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="226598d1-679c-455f-b055-2b13b8a4e6f2" name="Changes" comment="add model professor">
+    <list default="true" id="226598d1-679c-455f-b055-2b13b8a4e6f2" name="Changes" comment="add option to look &quot;my group&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grade_guard/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/grade_guard/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/main/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/student.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userslogin/templates/userlog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/userslogin/templates/userlog/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userslogin/helpdefs.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/userslogin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/userslogin/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="work_with_front" />
+        <entry key="$PROJECT_DIR$" value="views_creating" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,9 +38,18 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/GitHub/Grade_Guard/main/templates/front&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\GitHub\Grade_Guard\main\templates\front" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\GitHub\Grade_Guard\main\templates\front" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -63,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678696282503</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add option to look &quot;my group&quot;">
+      <created>1685785191424</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685785191424</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -91,6 +108,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="da" />
-    <option name="LAST_COMMIT_MESSAGE" value="da" />
+    <MESSAGE value="add option to look &quot;my group&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="add option to look &quot;my group&quot;" />
   </component>
 </project>

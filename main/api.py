@@ -45,29 +45,7 @@ def get_professor_journal(request):
             }
             response.append(json)
     responseJson["marks"] = response
-    ##dd(response)
     return JsonResponse(responseJson)
-
-def get_professor_subjects_html(request):
-    userID = None
-    if request.user.is_authenticated:
-        userID = request.user.id
-    else:
-        return redirect(views.signup)
-    teacher = Professor.objects.get(user=userID)
-
-    subjects = Subject.objects.filter(id = teacher.his_subject)
-
-    sub_list = []
-
-    for subject in subjects:
-        subject_data = {"sub_name": subject.sub_name, "sub_id": subject.id}
-        sub_list.append(subject_data)
-
-    fname = request.user.first_name
-    lname = request.user.last_name
-    data = {"first_name": fname, "last_name": lname, "subjects": sub_list}
-    return data
 
 def get_professor_categories_html(request, subjID= None):
 
@@ -239,12 +217,12 @@ def update_mark(request, atomID= None, score= None):
     return JsonResponse({"status": "success"})
 
 
-def  look_group(request):
+def look_group(request):
     if request.user.is_authenticated:
         userID = request.user.id
     else:
         return redirect(views.signup)
-    student = Student.objects.get(id = userID)
+    student = Student.objects.get(user_id = userID)
 
     group = student.his_group
     students = Student.objects.filter(his_group = group)
@@ -256,4 +234,23 @@ def  look_group(request):
         stud_list.append(stud_data)
 
     data = {"group": group.group_name, "group_id": group, "students": stud_list}
+    return data
+
+
+def get_professor_subjects(request):
+    if request.user.is_authenticated:
+        userID = request.user.id
+    else:
+        return redirect(views.signup)
+
+    professor = Professor.objects.get(user= userID)
+    subjects = Subject.objects.filter(professor= professor)
+
+    sub_list = []
+
+    for subject in subjects:
+        subject_data = {"sub_name": subject.sub_name, "sub_id": subject.id, "group": subject.sub_group}
+        sub_list.append(subject_data)
+
+    data = {"subjects": sub_list}
     return data
