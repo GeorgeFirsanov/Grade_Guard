@@ -157,12 +157,14 @@ body {
   font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
   font-size: 16px;
   letter-spacing: 0.3px;
-  gap: 15px;
 }
 .footer__authors a {
   color: black;
   margin-left: 10px;
   text-decoration: none;
+}
+.footer__authors a{
+  margin-top: 10px;
 }
 .footer__authors a:hover {
   color: black;
