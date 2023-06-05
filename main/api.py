@@ -306,7 +306,7 @@ def tempo_dataset():
         "atom_name": ""}
     ]
 
-    students_list1 = [{"name": "Абдулов", "atoms": atoms1}, {"name": "Якимов", "atoms": atoms1}]
+    students_list1 = [{"name": "Абдулов"+"А.В.", "atoms": atoms1}, {"name": "Якимов", "atoms": atoms1}]
     students_list2 = [{"name": "Абдулов", "atoms": atoms2}, {"name": "Якимов", "atoms": atoms2}]
     students_list3 = [{"name": "Абдулов", "atoms": atoms3}, {"name": "Якимов", "atoms": atoms3}]
     students_list4 = [{"name": "Абдулов", "atoms": atoms4}, {"name": "Якимов", "atoms": atoms4}]
