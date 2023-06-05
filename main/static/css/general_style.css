@@ -10,7 +10,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 .header {
   height: 75px;
   width: 100%;
@@ -20,6 +19,7 @@ body {
   background: #f4f4f4;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .header__img {
   margin: 0 100px;
@@ -105,7 +105,10 @@ body {
   align-items: center;
   justify-content: center;
 }
-
+._container{
+  max-width: 1440px;
+  margin: 0 auto;
+}
 .footer {
   background: #f5f5f5;
 }
