@@ -15,5 +15,5 @@ urlpatterns = [
     path('editTable/<int:subjID>/', views.editTable, name= "editTable"),
     
 
-    path('api/test', api.get_professor_subjects)
+    #path('api/test', api.get_atoms)
 ]
