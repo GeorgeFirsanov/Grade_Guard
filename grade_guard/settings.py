@@ -42,9 +42,13 @@ INSTALLED_APPS = [
     'main',
     'group',
     'Student',
+<<<<<<< HEAD
     'Professor',
     'userslogin',
     'django_dump_die'
+=======
+    'Professor'
+>>>>>>> c05ce29b28c2fc84802b8cf8931a9d892b8fe274
 ]
 
 MIDDLEWARE = [
