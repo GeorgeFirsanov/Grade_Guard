@@ -254,3 +254,66 @@ def get_professor_subjects(request):
 
     data = {"subjects": sub_list}
     return data
+
+
+def tempo_dataset():
+    #HARD CODE ZONE!)
+    atoms1 = [
+    {
+    "score" : 6,
+    "atom_name": "№1"},
+    {
+    "score" : 7,
+    "atom_name": "№2"},
+    {
+    "score" : 10,
+    "atom_name": "№3"}
+    ]
+    atoms2 = [
+        {
+        "score" : 8,
+        "atom_name": "1 лекция"},
+        {
+        "score" : 9,
+        "atom_name": "2 лекция"},
+        {
+        "score" : 10,
+        "atom_name": "3 лекция"},
+        {
+        "score" : 11,
+        "atom_name": "4 лекция"},
+        {
+        "score" : 12,
+        "atom_name": "5 лекция"}
+    ]
+    atoms3 = [
+        {
+        "score" : 0,
+        "atom_name": "1 пр"},
+        {
+        "score" : 1,
+        "atom_name": "2 пр"},
+        {
+        "score" : 2,
+        "atom_name": "3 пр"},
+        {
+        "score" : 3,
+        "atom_name": "4 пр"}
+    ] 
+    atoms4 = [
+        {
+        "score" : 6,
+        "atom_name": ""}
+    ]
+
+    students_list1 = [{"name": "Абдулов", "atoms": atoms1}, {"name": "Якимов", "atoms": atoms1}]
+    students_list2 = [{"name": "Абдулов", "atoms": atoms2}, {"name": "Якимов", "atoms": atoms2}]
+    students_list3 = [{"name": "Абдулов", "atoms": atoms3}, {"name": "Якимов", "atoms": atoms3}]
+    students_list4 = [{"name": "Абдулов", "atoms": atoms4}, {"name": "Якимов", "atoms": atoms4}]
+
+    categories_list = [{"name":"Тесты Муудл", "studens": students_list1},
+                       {"name":"Посещения", "studens": students_list2}, 
+                       {"name":"Практические", "studens": students_list3}, 
+                       {"name":"Доп баллы", "studens": students_list4} ]
+    return {"categories": categories_list, "group_name": "А401"}
+

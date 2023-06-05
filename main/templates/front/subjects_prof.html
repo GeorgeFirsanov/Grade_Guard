@@ -16,7 +16,7 @@
             <div class="content__head">Выберите предмет и группу</div>
             <div class="content__spisok">
                 {% for subj in subjects %}
-                <a href="{% url 'subject' subjID=subj.sub_id %}"  class="content__item" class="content__item">{{subj.sub_name}}{{subj.group}}</a>
+                <a href="{% url 'editTable' subjID=subj.sub_id %}"  class="content__item" class="content__item">{{subj.sub_name}} {{subj.group}}</a>
                 {% endfor %}
             </div>
         </div>
