@@ -27,8 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000/']
 
 # Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,7 +42,13 @@ INSTALLED_APPS = [
     'main',
     'group',
     'Student',
+<<<<<<< HEAD
+    'Professor',
+    'userslogin',
+    'django_dump_die'
+=======
     'Professor'
+>>>>>>> c05ce29b28c2fc84802b8cf8931a9d892b8fe274
 ]
 
 MIDDLEWARE = [
@@ -51,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_dump_die.middleware.DumpAndDieMiddleware'
 ]
 
 ROOT_URLCONF = 'grade_guard.urls'
@@ -124,3 +133,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGOUT_REDIRECT_URL = "/"
