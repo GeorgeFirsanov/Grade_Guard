@@ -10,6 +10,7 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background: linear-gradient(90deg, rgba(92,27,27,1) 20%, rgba(8,97,180,.8) 50%, rgba(92,27,27,1) 80%);
 }
 
 .header {
@@ -81,36 +82,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-.footer {
-  background: #f5f5f5;
-}
-.footer__row {
-  display: flex;
-  min-height: 65px;
-  align-items: center;
-  justify-content: space-between;
-  font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
-  font-size: 16px;
-  letter-spacing: 0.3px;
-}
-.footer__authors {
-  margin: 10px 0 0 10px;
-  padding: 5px;
-}
-.footer__authors a {
-  color: black;
-  margin: 0 0 0 10px;
-  text-decoration: none;
-}
-.footer__authors a:hover {
-  color: black;
-  font-size: 150%;
-  transition-duration: 0.4s;
-}
-.footer__authors a:visited {
-  color: black;
-}
 .content__autoriz {
   border-radius: 50px;
   box-shadow: 0 0 50px 50px #5c1b1b;
@@ -170,4 +141,77 @@ body {
 .content .form__butt:active {
   background: #d7cfcf;
   box-shadow: 1px 1px 1px 1px #818181;
+}
+.footer {
+  background: #f5f5f5;
+}
+.footer .content {
+  padding: 0.5% 7%;
+}
+.footer__row {
+  width: 100%;
+  display: flex;
+  min-height: 65px;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  gap: 15px;
+}
+.footer__authors a {
+  color: black;
+  margin-left: 10px;
+  text-decoration: none;
+}
+.footer__authors a:hover {
+  color: black;
+  font-size: 150%;
+  transition-duration: 0.4s;
+}
+.footer__authors a:visited {
+  color: black;
+}
+@media (max-width: 1231px) {
+  .footer__authors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer__authors a {
+    max-width: 100px;
+    text-align: center;
+    margin-left: 10px;
+  }
+}
+@media (max-width: 1089px) {
+  .footer__authors {
+    justify-content: end;
+  }
+  .footer__authors a {
+    min-width: 30%;
+    margin-left: 20px;
+    margin-bottom: 5px;
+  }
+}
+@media (max-width: 637px) {
+  .footer__authors {
+    flex: 1 1 50%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .footer__authors > * {
+    margin-bottom: 5px;
+  }
+  .footer__authors a {
+    min-width: max-content;
+    color: black;
+    margin-left: 0px;
+  }
+  .footer__authors a:first-child {
+    margin-top: 5px;
+  }
+  .footer__goal {
+    text-align: end;
+  }
 }
