@@ -7,26 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static "css/autoriz.css" %}">
+    <link rel="stylesheet" href='{% static "css/autoriz.css" %}'>
 </head>
 <body>
-    <form method = 'POST'>{% csrf_token %}
     <div class="wrapper">
         <header class="header">Страница входа</header>
         <div class="content">
-            <div class="autoriz">
-
-                     <div class="autoriz__form-title">Авторизация</div>
-                        <input class="autoriz__form-input" type="text"  name="username" placeholder="Логин">
-                        <input class="autoriz__form-input" type="password" name="password" placeholder="Пароль">
-                        <div class="autoriz__form-check">
-
-                            <input disabled class="autoriz__form-check" type="checkbox">   Запомнить
-                        </div>
-                        <button class="autoriz__form-butt" type="submit">Вход</button>
-                    </div>
-
-            </div>
+            <form method = 'POST' class="autoriz__form form">{% csrf_token %}
+                <div class="form__title">Авторизация</div>
+                <input class="form__input" type="text"  name="username" placeholder="Логин">
+                <input class="form__input" type="password" name="password" placeholder="Пароль">
+                <div class="form__check">
+                    <input disabled class="autoriz__form-check" type="checkbox">   Запомнить
+                </div>
+                <button class="form__butt" type="submit">Вход</button>
+            </form>
         </div>
         <footer class="footer">
             <div class="footer__row">
@@ -43,6 +38,10 @@
             </div>
         </footer>
     </div>
-    </form>
+     <script>
+        setTimeout(function(){
+            window.location.reload(1);
+            }, 1000);
+     </script>
 </body>
 </html>
