@@ -20,6 +20,7 @@
         </header>
         <div class="content">
             <center>
+                <!--
                 <table border="1px solid black" cellspacing="5" bgcolor="dark purple">
                     <caption><b>Input Marks</b></caption>
                     <tr>
@@ -44,6 +45,7 @@
                         <input type="submit" value="Add To Table" onclick="Sub()"></th>
                     </tr>    
                 </table>
+                -->
                 <h2 class="content__title">Общее количество баллов</h2>
                 <form action="#" class="content__form form">
                     <div class="form__table table">
@@ -78,22 +80,32 @@
                             <div class="row__item row__item_main">Общее кол-во</div>
                             <div class="row__item row__item_main">Оценка</div>
                         </div>
+
                         {% for s in students %}
                         <div class="table__row row row_student">
                             <div class="row__item row__item_main">
                                 {{s.name}}
                             </div>
                             {% for c in s.categories %}
-                            {% for a in c.atoms %}
-                            <div class="row__item">
-                                <div class="row__pole">
-                                    <input placeholder="999" type="text">
+                                {% for a in c.atoms %}
+                                <div class="row__item">
+                                    <div class="row__pole">
+                                        <input placeholder={{a.scores}} type="text">
+                                    </div>
                                 </div>
+                                {% endfor %}
+                            {% empty %}
+                            <div class="row__item row__item_main">
+                                Пусто
                             </div>
                             {% endfor %}
-                            {% endfor %}
+                        </div>
+                        {% empty %}
+                        <div class="row__item row__item_main">
+                            Пусто
                         </div>
                         {% endfor %}
+
                         <div class="table__row row"></div>
                         <div class="table__row row"></div>
                         <div class="table__row row"></div>
@@ -103,7 +115,7 @@
                         <button type="reset" class="form__cancel">Отменить</button>
                     </div>
                 </form>
-                
+                <!--
                 <table border="1" cellspacing="5" bgcolor="dark purple" 
                        height="100" width="500" cellpadding="5" id="TableScore">
                     <caption><b>Student Data</b></caption>
@@ -114,7 +126,7 @@
                         <th>Pass Or Fail</th>
                     </tr>
                       
-                </table>
+                </table> -->
                 </center>
 
             <!-- <div class="content__edit">

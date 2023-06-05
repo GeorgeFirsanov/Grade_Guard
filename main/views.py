@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from group.models import Subject
-from main.api import get_student_subjects_html, get_student_categories_html, look_group, get_professor_subjects, tempo_dataset
+from main.api import get_atoms, get_student_subjects_html, get_student_categories_html, look_group, get_professor_subjects
 from userslogin import views
 
 def teacher(request):
@@ -47,7 +47,7 @@ def subjucts_for_prof(request):
 def editTable(request, subjID):
     #'or True' is temporary solution
     if request.user.is_authenticated:
-            data = tempo_dataset()
+            data = get_atoms(request, subjID)
             return render(request, 'front/editTable.html', data)
     else:
         return redirect(views.signup)
