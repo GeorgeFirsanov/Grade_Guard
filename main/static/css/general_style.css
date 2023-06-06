@@ -48,6 +48,12 @@ body {
 .header__item > * {
   color: inherit;
 }
+.header__item > *:hover{
+  color: rgb(38, 38, 38);
+}
+.header__item > *:active{
+  color: rgb(0, 0, 0);
+}
 
 @media (max-width: 1024px) {
   .header {
@@ -121,7 +127,26 @@ body {
   font-size: 16px;
   letter-spacing: 0.3px;
 }
+.footer__logout{
+  color: black;
+  text-align: center;
+}
+.footer__logout:hover {
+  font-size: 150%;
+  transition-duration: 0.4s;
+}
+.footer__goal{
+  flex: 0 1 20%;
+  text-align: center;
+  transition: text-shadow .3s;
+}
+.footer__goal:hover{
+  text-shadow: 0 0 .2px #000, 0 0 .1px #000;
+  /* раскомментируйте строку ниже, если нужен более сильный эффект */
+  /* text-shadow: 0 0 .9px #333, 0 0 .9px #333, 0 0 .9px #333; */
+}
 .footer__authors {
+  flex: 0 1 20%;
   margin: 10px 0 0 10px;
   padding: 5px;
 }
