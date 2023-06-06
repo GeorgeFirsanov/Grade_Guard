@@ -4,6 +4,7 @@ const table = document.querySelector('.form__table');
 const generalScores = document.querySelectorAll('.js-general_score');
 const generalBalls = document.querySelectorAll('.js-general_ball');
 const scores = document.querySelectorAll('.js-score');
+
 //подсчет баллов
 for (let i = 1; i < table.children.length; i++) {
     const student = table.children[i];
@@ -14,7 +15,7 @@ for (let i = 1; i < table.children.length; i++) {
     }
     const generalScore = student.querySelector('.js-general_score');
     generalScore.textContent =  totalScore;
-    console.log(generalScore.textContent);
+
     //расчет оценки
     const generalBall = student.querySelector('.js-general_ball');
     
@@ -29,11 +30,21 @@ for (let i = 1; i < table.children.length; i++) {
     }
 }
 
+//Изменение баллов
 table.addEventListener('click', (event)=>{
-    console.log(event.target);
+    const trigger = event.target;
+    if(trigger.className != 'js-score') return;
+    trigger.classList.toggle('hidden');
+    const input = trigger.nextElementSibling;
+    input.classList.toggle('hidden');
+    input.addEventListener('focusout', ()=>{
+        console.log('I go home');
+    })
+
     const parent = event.target.parentElement;
     console.log(parent);
 })
+//Отправка данных на сервак
 postButton.addEventListener('click', ()=>{
     console.log('test');
 })

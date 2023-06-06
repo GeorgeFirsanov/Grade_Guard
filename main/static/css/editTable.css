@@ -108,8 +108,13 @@ body {
 .content .form .table .row_student .row__pole > * {
   background: inherit;
   color: #fff;
-  margin: 2px;
-  font-size: 1.2em;
+  /* height: 100%; */
+  /* margin: 2px; */
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  flex: 1 1 auto;
+  font-size: 1.3em;
   text-align: center;
   width: 90%;
 }
@@ -146,4 +151,7 @@ body {
 .content .form__buttons > *:active {
   background: rgb(137, 132, 36);
   color: #e0e0e0;
+}
+.hidden{
+  display: none !important;
 }

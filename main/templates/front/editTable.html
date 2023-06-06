@@ -63,8 +63,8 @@
                             {% for a in c.atoms %}
                             <div class="row__item">
                                 <div class="row__pole">
-                                    <!-- <input id="{{a.id}}" placeholder={{a.scores}} type="text"> -->
                                     <div id="{{a.id}}" class="js-score">{{a.scores}}</div>
+                                    <input id="{{a.id}}" class="hidden" placeholder={{a.scores}} type="text">
                                 </div>
                             </div>
                             {% endfor %}
