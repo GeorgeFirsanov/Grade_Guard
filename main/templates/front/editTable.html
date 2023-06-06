@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static "./css/editTable.css" %}">
+    <link rel="stylesheet" href='{% static "css/editTable.css" %}'>
 </head>
 <body>
     <div class="wrapper">
         <header class="header">
             <div class="header__img">
-                <img src="{% static "/img/Gerb.jpg" %}" alt="Gerb">
+                <img src='{% static "/img/Gerb.jpg" %}' alt="Gerb">
             </div>
             <ul class="header__nav">
                 <li class="header__item"><a href="{% url 'teacher' %}">{{group_name}}</a></li>              
@@ -90,49 +90,23 @@
             </form>
         </div>
         <footer class="footer">
-            <div class="footer__row">
-                <div class="footer__authors">
-                    Авторы:
-                    <a href="https://vk.com/ru.bachatero">Максим Булычев</a>
-                    <a href="https://vk.com/firsang">Георгий Фирсанов</a>
-                    <a href="https://vk.com/dos100evskiy">Андрей Юрков</a>
-                    <a href="https://vk.com/zl0i_belyi">Владислав Квасюк</a>
-                </div>
-                <div class="footer__goal">
-                    Сделано в качестве проекта по компьютерному практикуму
+            <div class="_container">
+                <div class="footer__row">
+                    <div class="footer__authors">
+                        Авторы: <br>
+                        <a href="https://vk.com/ru.bachatero">Максим Булычев</a><br>
+                        <a href="https://vk.com/firsang">Георгий Фирсанов</a><br>
+                        <a href="https://vk.com/dos100evskiy">Андрей Юрков</a><br>
+                        <a href="https://vk.com/zl0i_belyi">Владислав Квасюк</a> <br>
+                    </div>
+                    <a  class="footer__logout" href="{% url 'logout' %}">Выход</a>
+                    <div class="footer__goal">
+                        Сделано в качестве проекта по компьютерному практикуму
+                    </div>
                 </div>
             </div>
         </footer>
     </div>
-    <script type="text/javascript" src="../../static/js/editTable.js">
-        /*function Sub(){
-            var n, k, r, e, v, sum, avg;
-            n=(document.getElementById('aname').value);
-            k=parseFloat(document.getElementById('am').value);
-            r=parseFloat(document.getElementById('aj').value);
-            e=parseFloat(document.getElementById('ad').value);
-            v=parseFloat(document.getElementById('an').value);
-            // Calculating Total
-            sum=k+r+e+v;
-            avg=sum/4;
-            // Display on Student Data
-            var newTable = document.getElementById('TableScore');
-            var row = newTable.insertRow(-1);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(0);
-            var cell3 = row.insertCell(0);
-            var cell4 = row.insertCell(0);
-  
-            cell4.innerHTML= n;
-            cell3.innerHTML=sum;
-            cell2.innerHTML = avg;
-  
-            if(avg>=70){
-                cell1.innerHTML="<font color=green>Pass</font>";
-            }else{
-                cell1.innerHTML="<font color=red>Fail</font>";
-            }
-        }*/
-    </script>
+    <script type="text/javascript" src={% static "js/editTable.js" %}></script>
 </body>
 </html>
