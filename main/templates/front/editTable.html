@@ -29,11 +29,11 @@
                             {% for c in student.categories %}
                             <div class="row__item row__item_main row__item_add">
                                 <div class="table__row row row__item_main">
-                                    <div class="row_item"> {{c.name}} </div>
+                                    <div class="row__item row__item_main"> {{c.name}} </div>
                                 </div>
                                 <div class="table__row row row__item_main">
                                     {% for atom in c.atoms %}
-                                    <div class="row_item">{{atom.atom_name}}</div>
+                                    <div class="row__item row__item_main">{{atom.atom_name}}</div>
                                     {% endfor %}
                                 </div>
                             </div>
@@ -63,25 +63,22 @@
                             {% for a in c.atoms %}
                             <div class="row__item">
                                 <div class="row__pole">
-                                    <input id="{{a.id}}" placeholder={{a.scores}} type="text">
+                                    <!-- <input id="{{a.id}}" placeholder={{a.scores}} type="text"> -->
+                                    <div id="{{a.id}}" class="js-score">{{a.scores}}</div>
                                 </div>
                             </div>
                             {% endfor %}
                         {% empty %}
-                        <div class="row__item row__item_main">
-                            Пусто
-                        </div>
-                        {% endfor %}
+                            {% endfor %}
+                            <div class="row__item row__item_main js-general_score">
+                                Пусто
+                            </div>
+                            <div class="row__item row__item_main js-general_ball">
+                                Пусто
+                            </div>
                     </div>
                     {% empty %}
-                    <div class="row__item row__item_main">
-                        Пусто
-                    </div>
                     {% endfor %}
-
-                    <div class="table__row row"></div>
-                    <div class="table__row row"></div>
-                    <div class="table__row row"></div>
                 </div>
                 <div class="form__buttons">
                     <button type="submit" class="form__save">Сохранить</button>

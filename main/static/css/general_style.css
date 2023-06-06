@@ -142,8 +142,6 @@ body {
 }
 .footer__goal:hover{
   text-shadow: 0 0 .2px #000, 0 0 .1px #000;
-  /* раскомментируйте строку ниже, если нужен более сильный эффект */
-  /* text-shadow: 0 0 .9px #333, 0 0 .9px #333, 0 0 .9px #333; */
 }
 .footer__authors {
   flex: 0 1 20%;
