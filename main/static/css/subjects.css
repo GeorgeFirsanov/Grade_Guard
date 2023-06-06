@@ -68,21 +68,3 @@
   transition-delay: 30ms;
   transition-duration: 150ms;
 }
-
-.footer__row {
-  display: flex;
-  min-height: 65px;
-  align-items: center;
-  justify-content: space-between;
-  font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
-  font-size: 16px;
-  letter-spacing: 0.3px;
-}
-.footer__logout{
-
-  text-align: center;
-}
-.footer__goal{
-  flex: 0 1 20%;
-  text-align: center;
-}
