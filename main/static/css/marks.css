@@ -1,5 +1,6 @@
 @import "./zero_style.css";
 @import "./general_style.css";
+
 .content__link {
   padding: 10px 20px;
   color: #000;
@@ -66,7 +67,10 @@
 }
 .content .table__row {
   display: grid;
-  font-size: 24px;
+  font-size: 28px;
+}
+.row__name::first-letter{
+  text-transform: uppercase;
 }
 .content .title {
   font-size: 30px;
@@ -114,12 +118,19 @@
 .content .table_moodle .row {
   grid-template-columns: 0.3fr repeat(3, 200px);
 }
+.content .table_практика .row {
+  grid-template-columns: 0.3fr repeat(7, .2fr) .3fr;
+}
+.content .table_лабораторная .row {
+  grid-template-columns: 0.3fr repeat(7, .2fr) .3fr;
+}
+.content .table_лекция .row {
+  grid-template-columns: 0.3fr repeat(16, .2fr) .3fr;
+}
 .content .table_visits .row {
   grid-template-columns: 0.1fr repeat(6, minmax(100px, 1fr)) 0.1fr;
 }
-.content .table_labs .row {
-  grid-template-columns: 0.1fr repeat(6, minmax(100px, 1fr)) 0.1fr;
-}
+
 .content .table_addition .row {
   grid-template-columns: 0.3fr repeat(3, 200px);
 }
