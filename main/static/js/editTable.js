@@ -37,7 +37,7 @@ table.addEventListener('click', (event)=>{
     const input = trigger.nextElementSibling;
     input.classList.toggle('hidden');
     input.addEventListener('focusout', ()=>{
-        console.log('I go home');
+        input.style.color = 'yellow';
     })
 
     const parent = event.target.parentElement;
