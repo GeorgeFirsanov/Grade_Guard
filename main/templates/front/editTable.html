@@ -20,7 +20,8 @@
         </header>
         <div class="content">
             <h2 class="content__title">Общее количество баллов</h2>
-            <form action="#" class="content__form form">
+            <h6 class="content__title_litle">Для изменения нажмите на нужную клетку</h6>
+            <form method="post" class="content__form form">{% csrf_token %}
                 <div class="form__table table">
                     <div class="table__row row row_head table__row_main">
                         <div class="row__item row__item_main">ФИО</div>

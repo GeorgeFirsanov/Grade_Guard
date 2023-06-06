@@ -35,6 +35,11 @@ body {
   font-weight: 700;
   margin: 0 0 30px;
 }
+.content__title_litle{
+  font-style: italic;
+  font-size: 11px;
+  margin-bottom: 15px;
+}
 .content .form__table {
   display: grid;
   row-gap: 10px;
