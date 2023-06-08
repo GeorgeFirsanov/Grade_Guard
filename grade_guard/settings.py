@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'group',
-    'Student',
-    'Professor',
     'userslogin',
     'django_dump_die'
 ]

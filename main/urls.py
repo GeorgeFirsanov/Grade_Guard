@@ -4,7 +4,6 @@ from userslogin import views as userv
 
 urlpatterns = [
     path('', userv.signup, name = 'signup'),
-    path('register', userv.register, name='register'),
     path('logout', userv.logout_view,  name='logout'),
 
     path('student', views.student, name = "student"),

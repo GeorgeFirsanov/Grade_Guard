@@ -12,17 +12,13 @@ def get_professor_journal(request):
     if request.user.is_authenticated:
         userID = request.user.id
 
-    #dd(Professor.objects.all())
-    #dd(get_user_model())
     subjects = Professor.objects.get(user=userID).his_subject.all()
     responseJson = {}
     response = []
     for subject in subjects:
         subID = subject.id
-        #Atoms = Atom.objects.get(subject_id=subID)
         Atoms = Atom.objects.filter(subject_id=subID)
         for atom in Atoms:
-        #atom = Atom.objects.get(subject_id=subID)
             score = atom.scores
             student = Student.objects.get(id = atom.stud_obj_id)
             user = User.objects.get(id = student.user_id)
